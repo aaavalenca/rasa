@@ -109,7 +109,24 @@ forms:
   book_restaurant_form:
     restaurant-bookday:
     - type: from_entity
-      entity: book_restaurant_form
+      entity: restaurant-bookday
+      intent: book_restaurant
+    restaurant-bookpeople:
+    - type: from_entity
+      entity: restaurant-bookpeople
+      intent: book_restaurant
+    restaurant-booktime:
+    - type: from_entity
+      entity: restaurant-booktime
+      intent: book_restaurant
+  book_restaurant_straight_form:
+    restaurant-name:
+    - type: from_entity
+      entity: restaurant-name
+      intent: book_restaurant
+    restaurant-bookday:
+    - type: from_entity
+      entity: restaurant-bookday
       intent: book_restaurant
     restaurant-bookpeople:
     - type: from_entity
