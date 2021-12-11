@@ -1,0 +1,87 @@
+
+version: "2.0"
+
+stories:
+
+- story: find and book happy
+  steps:
+  - intent: greet
+  - action: utter_restaurant
+  - intent: find_restaurant
+  - action: find_restaurant_form
+  - active_loop: find_restaurant_form
+  - slot_was_set:
+    - requested_slot: restaurant-area
+  - slot_was_set:
+    - restaurant-area: centre
+  - slot_was_set:
+    - requested_slot: restaurant-pricerange
+  - slot_was_set:
+    - restaurant-pricerange: cheap
+  - slot_was_set:
+    - requested_slot: restaurant-food
+  - slot_was_set:
+    - restaurant-food: chinese
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_find_restaurant
+  - intent: book_restaurant
+    entities:
+    - restaurant-name: rice house
+  - slot_was_set:
+    - rice house
+  - action: book_restaurant_form
+  - active_loop: book_restaurant_form
+  - slot_was_set:
+    - requested_slot: restaurant-bookday
+  - slot_was_set:
+    - restaurant-bookday: tuesday
+  - slot_was_set:
+    - requested_slot: restaurant-bookpeople
+  - slot_was_set:
+    - restaurant-bookpeople: "2"
+  - slot_was_set:
+    - requested_slot: restaurant-booktime
+  - slot_was_set:
+    - restaurant-booktime: 12:00
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_book_finished
+  - action: utter_what_else
+  - intent: deny
+  - action: utter_goodbye
+  - action: action_reset_all_slots
+
+- story: book straight happy
+  steps:
+  - intent: greet
+  - action: utter_restaurant
+  - intent: book_restaurant
+  - action: book_restaurant_straight_form
+  - active_loop: book_restaurant_straight_form
+  - slot_was_set:
+    - requested_slot: restaurant-name
+  - slot_was_set:
+    - restaurant-name: backstreet bistro
+  - slot_was_set:
+    - requested_slot: restaurant-bookday
+  - slot_was_set:
+    - restaurant-bookday: tuesday
+  - slot_was_set:
+    - requested_slot: restaurant-bookpeople
+  - slot_was_set:
+    - restaurant-bookpeople: '3'
+  - slot_was_set:
+    - requested_slot: restaurant-booktime
+  - slot_was_set:
+    - restaurant-booktime: 12:00
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_book_finished
+  - action: utter_what_else
+  - intent: deny
+  - action: utter_goodbye
+  - action: action_reset_all_slots

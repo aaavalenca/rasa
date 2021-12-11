@@ -1,0 +1,50 @@
+version: "2.0"
+
+rules:
+
+- rule: fallback
+  steps:
+  - intent: nlu_fallback
+  - action: utter_default
+
+# - rule: Activate find form
+#   steps:
+#   - intent: find_restaurant
+#   - action: find_restaurant_form
+#   - active_loop: find_restaurant_form
+
+# - rule: Activate book form
+#   steps:
+#   - intent: book_restaurant
+#   - action: book_restaurant_form
+#   - active_loop: book_restaurant_form
+
+# - rule: Submit find form
+#   condition:
+#   - active_loop: find_restaurant_form
+#   steps:
+#   - action: find_restaurant_form
+#   - active_loop: null
+#   - slot_was_set:
+#     - requested_slot: null
+#   - action: utter_give_find_slots
+
+# - rule: Submit book form
+#   condition:
+#   - active_loop: book_restaurant_form
+#   steps:
+#   - action: book_restaurant_form
+#   - active_loop: null
+#   - slot_was_set:
+#     - requested_slot: null
+#   - action: utter_book_finished
+
+# - rule: Say goodbye anytime the user says goodbye
+#   steps:
+#   - intent: goodbye
+#   - action: utter_goodbye
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot

@@ -1,0 +1,121 @@
+version: "2.0"
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+  - greet
+  - book_restaurant
+  - deny
+  - find_restaurant
+  - affirm
+  - goodbye
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - finish_query
+  - nlu_fallback
+entities:
+  - restaurant-area
+  - restaurant-bookday
+  - restaurant-bookpeople
+  - restaurant-booktime
+  - restaurant-food
+  - restaurant-name
+  - restaurant-pricerange
+slots:
+  restaurant-area:
+    type: text
+    influence_conversation: true
+  restaurant-food:
+    type: text
+    influence_conversation: true
+  restaurant-pricerange:
+    type: text
+    influence_conversation: true
+  restaurant-bookday:
+    type: text
+    influence_conversation: true
+  restaurant-bookpeople:
+    type: text
+    influence_conversation: true
+  restaurant-booktime:
+    type: text
+    influence_conversation: true
+  restaurant-name:
+    type: text
+    influence_conversation: true
+responses:
+  utter_restaurant:
+  - text: Hi, I can help you, restaurant-wise?
+  utter_ask_restaurant-area:
+  - text: Tell me in which area of the town do you want to eat
+  utter_ask_restaurant-pricerange:
+  - text: Gimme a price range. Like, do you want something cheap, or expensive
+  utter_ask_restaurant-food:
+  - text: What type of food would you be eating this time?
+  utter_ask_restaurant-bookday:
+  - text: What day of the week would you like to eat in
+  utter_ask_restaurant-bookpeople:
+  - text: How many people, including you, will be joining the table?
+  utter_ask_restaurant-booktime:
+  - text: At what time of the day all this eating around is gonna take place?
+  utter_ask_restaurant-name:
+  - text: Which restaurant would you like to visit?
+  utter_give_find_slots:
+  - text: 'Is that right? area: {restaurant-area}. food type: {restaurant-food}. pricerange: {restaurant-pricerange}'
+  utter_book_finished:
+  - text: Ok, just booked the restaurant {restaurant-name} at {restaurant-booktime} on {restaurant-bookday} for {restaurant-bookpeople}
+  utter_what_else:
+  - text: Can I do something else for you?
+  utter_greet:
+  - text: Hey! How are you?
+  utter_cheer_up:
+  - image: https://i.imgur.com/nGF1K8f.jpg
+    text: 'Here is something to cheer you up:'
+  utter_default:
+  - text: I didn't understand you. Can you repeat?
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_happy:
+  - text: Great, carry on!
+  utter_goodbye:
+  - text: Bye
+  utter_iamabot:
+  - text: I am a restaurant-finder, restaurant-booker, all-star bot powered by Rasa.
+actions:
+- action_find_restaurant
+- action_reset_all_slots
+- utter_book_finished
+- utter_did_that_help
+- utter_give_find_slots
+- utter_goodbye
+- utter_greet
+- utter_restaurant
+- utter_what_else
+forms:
+  find_restaurant_form:
+    restaurant-area:
+    - type: from_entity
+      entity: restaurant-area
+      intent: find_restaurant
+    restaurant-pricerange:
+    - type: from_entity
+      entity: restaurant-pricerange
+      intent: find_restaurant
+    restaurant-food:
+    - type: from_entity
+      entity: restaurant-food
+      intent: find_restaurant
+  book_restaurant_form:
+    restaurant-bookday:
+    - type: from_entity
+      entity: book_restaurant_form
+      intent: book_restaurant
+    restaurant-bookpeople:
+    - type: from_entity
+      entity: restaurant-bookpeople
+      intent: book_restaurant
+    restaurant-booktime:
+    - type: from_entity
+      entity: restaurant-booktime
+      intent: book_restaurant
