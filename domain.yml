@@ -1,27 +1,27 @@
-version: "2.0"
+version: '2.0'
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
-  - greet
-  - book_restaurant
-  - deny
-  - find_restaurant
-  - affirm
-  - goodbye
-  - mood_great
-  - mood_unhappy
-  - bot_challenge
-  - finish_query
-  - nlu_fallback
+- greet
+- book_restaurant
+- deny
+- find_restaurant
+- affirm
+- goodbye
+- mood_great
+- mood_unhappy
+- bot_challenge
+- finish_query
+- nlu_fallback
 entities:
-  - restaurant-area
-  - restaurant-bookday
-  - restaurant-bookpeople
-  - restaurant-booktime
-  - restaurant-food
-  - restaurant-name
-  - restaurant-pricerange
+- restaurant-area
+- restaurant-bookday
+- restaurant-bookpeople
+- restaurant-booktime
+- restaurant-food
+- restaurant-name
+- restaurant-pricerange
 slots:
   restaurant-area:
     type: text
@@ -97,42 +97,32 @@ forms:
     restaurant-area:
     - type: from_entity
       entity: restaurant-area
-      intent: find_restaurant
     restaurant-pricerange:
     - type: from_entity
       entity: restaurant-pricerange
-      intent: find_restaurant
     restaurant-food:
     - type: from_entity
       entity: restaurant-food
-      intent: find_restaurant
   book_restaurant_form:
     restaurant-bookday:
     - type: from_entity
       entity: restaurant-bookday
-      intent: book_restaurant
     restaurant-bookpeople:
     - type: from_entity
       entity: restaurant-bookpeople
-      intent: book_restaurant
     restaurant-booktime:
     - type: from_entity
       entity: restaurant-booktime
-      intent: book_restaurant
   book_restaurant_straight_form:
     restaurant-name:
     - type: from_entity
       entity: restaurant-name
-      intent: book_restaurant
     restaurant-bookday:
     - type: from_entity
       entity: restaurant-bookday
-      intent: book_restaurant
     restaurant-bookpeople:
     - type: from_entity
       entity: restaurant-bookpeople
-      intent: book_restaurant
     restaurant-booktime:
     - type: from_entity
       entity: restaurant-booktime
-      intent: book_restaurant
