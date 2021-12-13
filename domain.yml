@@ -14,6 +14,8 @@ intents:
 - bot_challenge
 - finish_query
 - nlu_fallback
+- chitchat
+- faq
 entities:
 - restaurant-area
 - restaurant-bookday
@@ -82,6 +84,15 @@ responses:
   - text: Bye
   utter_iamabot:
   - text: I am a restaurant-finder, restaurant-booker, all-star bot powered by Rasa.
+  utter_faq/ask_name:
+  - text: Hello, my name is Restaurante PLN Bot.
+  - text: I am called Restaurante PLN Bot!
+  utter_faq/ask_function:
+  - text: I search book restaurants for you based on your choices.
+  - text: I could search or book a restaurant for you.
+  utter_faq/ask_foods:
+  - text: Chinese, indian, african and many others!
+  - text: A lot! I can suggest you chinese, african, indian and other restaurants!
 actions:
 - action_find_restaurant
 - action_reset_all_slots

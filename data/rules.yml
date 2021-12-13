@@ -39,6 +39,11 @@ rules:
 #     - requested_slot: null
 #   - action: utter_book_finished
 
+- rule: respond to FAQs
+  steps:
+  - intent: faq
+  - action: utter_faq
+
 # - rule: Say goodbye anytime the user says goodbye
 #   steps:
 #   - intent: goodbye
